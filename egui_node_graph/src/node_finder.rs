@@ -38,16 +38,8 @@ where
         all_kinds: impl NodeTemplateIter<Item = NodeTemplate>,
         user_state: &mut UserState,
     ) -> Option<NodeTemplate> {
-        let background_color;
-        let text_color;
-
-        if ui.visuals().dark_mode {
-            background_color = color_from_hex("#3f3f3f").unwrap();
-            text_color = color_from_hex("#fefefe").unwrap();
-        } else {
-            background_color = color_from_hex("#fefefe").unwrap();
-            text_color = color_from_hex("#3f3f3f").unwrap();
-        }
+        let background_color = ui.visuals().panel_fill;
+        let text_color = ui.visuals().override_text_color.unwrap_or_else(color_from_hex("#fefefe").unwrap());
 
         ui.visuals_mut().widgets.noninteractive.fg_stroke = Stroke::new(2.0, text_color);
 
