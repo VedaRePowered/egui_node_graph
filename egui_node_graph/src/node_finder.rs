@@ -39,7 +39,7 @@ where
         user_state: &mut UserState,
     ) -> Option<NodeTemplate> {
         let background_color = ui.visuals().panel_fill;
-        let text_color = ui.visuals().override_text_color.unwrap_or_else(color_from_hex("#fefefe").unwrap());
+        let text_color = ui.visuals().override_text_color.unwrap_or_else(|| color_from_hex("#fefefe").unwrap());
 
         ui.visuals_mut().widgets.noninteractive.fg_stroke = Stroke::new(2.0, text_color);
 
