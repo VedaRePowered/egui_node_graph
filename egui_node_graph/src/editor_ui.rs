@@ -501,15 +501,8 @@ where
         let margin = egui::vec2(15.0, 5.0);
         let mut responses = Vec::<NodeResponse<UserResponse, NodeData>>::new();
 
-        let background_color;
-        let text_color;
-        if ui.visuals().dark_mode {
-            background_color = color_from_hex("#3f3f3f").unwrap();
-            text_color = color_from_hex("#fefefe").unwrap();
-        } else {
-            background_color = color_from_hex("#ffffff").unwrap();
-            text_color = color_from_hex("#505050").unwrap();
-        }
+        let background_color = ui.visuals().panel_fill;
+        let text_color = ui.visuals().override_text_color.unwrap_or_else(|| color_from_hex("#fefefe").unwrap());
 
         ui.visuals_mut().widgets.noninteractive.fg_stroke = Stroke::new(2.0, text_color);
 
