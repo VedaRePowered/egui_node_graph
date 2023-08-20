@@ -501,7 +501,7 @@ where
         let margin = egui::vec2(15.0, 5.0);
         let mut responses = Vec::<NodeResponse<UserResponse, NodeData>>::new();
 
-        let background_color = ui.visuals().panel_fill;
+        let background_color = ui.visuals().faint_bg_color;
         let text_color = ui.visuals().override_text_color.unwrap_or_else(|| color_from_hex("#fefefe").unwrap());
 
         ui.visuals_mut().widgets.noninteractive.fg_stroke = Stroke::new(2.0, text_color);
